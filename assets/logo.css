@@ -1,5 +1,5 @@
-.logo-body *, 
-.logo-body *::before, 
+.logo-body *,
+.logo-body *::before,
 .logo-body *::after {
   margin: 0;
   padding: 0;
@@ -14,85 +14,106 @@
   --font-serif: 'Playfair Display', serif;
 }
 
+/* Layout */
 .logo-body {
   background-color: var(--color-paper);
   color: var(--color-ink);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
   display: flex;
   align-items: flex-start;
   justify-content: flex-start;
+
   padding: 2rem;
 }
 
 .logo-container {
   display: flex;
   flex-direction: column;
+  gap: 0.25rem;
 }
 
+/* Main logo link */
 .logo-link {
   display: inline-flex;
   align-items: baseline;
   text-decoration: none;
   color: var(--color-ink);
-  font-size: 3.75rem;
+
+  font-size: clamp(2rem, 5vw, 3.75rem);
+
   transition: font-size 0.6s cubic-bezier(0.23, 1, 0.32, 1);
 }
 
+/* Typography blocks */
 .logo-sah,
 .logo-mat {
   font-family: var(--font-display);
   font-weight: 900;
   letter-spacing: -0.05em;
   text-transform: uppercase;
-  line-height: 0.75;
+  line-height: 0.85;
 }
 
+/* stylized "v" */
 .logo-v {
   font-family: var(--font-serif);
   font-style: italic;
   font-weight: 500;
   text-transform: lowercase;
   color: var(--color-accent);
+
   margin: 0 0.25rem;
+
+  font-size: 0.85em;
+
   transform: rotate(0deg);
-  transition: transform 0.7s ease;
+  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
+/* dot */
 .logo-dot {
   display: block;
   width: 0.5rem;
   height: 0.5rem;
   background-color: var(--color-accent);
+
   margin-left: 0.25rem;
-  align-self: end;
-  margin-bottom: 0.05em;
-  transition: transform 0.7s ease;
+
+  position: relative;
+  top: -0.1em;
+
+  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.logo-container:hover .logo-v {
+/* hover interactions scoped properly */
+.logo-link:hover .logo-v {
   transform: rotate(-12deg);
 }
 
-.logo-container:hover .logo-dot {
+.logo-link:hover .logo-dot {
   transform: rotate(45deg) scale(1.5);
 }
 
+/* tagline */
 .tagline {
   font-family: var(--font-display);
   font-weight: 600;
   color: var(--color-ink);
-  font-size: .75rem;
+
+  font-size: 0.75rem;
   letter-spacing: 0.3em;
-  margin-top: -1rem;
+
+  margin-top: 0;
+
   align-self: center;
-  transition: 
-    color 0.5s ease, 
-    opacity 0.4s ease, 
-    transform 0.4s ease;
+
+  transition: color 0.5s ease, opacity 0.4s ease, transform 0.4s ease;
+
   cursor: default;
 }
 
-.logo-container:hover .tagline {
+.logo-link:hover + .tagline {
   color: var(--color-accent);
 }
