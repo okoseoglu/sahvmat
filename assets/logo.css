@@ -75,12 +75,9 @@
   width: 0.5rem;
   height: 0.5rem;
   background-color: var(--color-accent);
-
   margin-left: 0.25rem;
-
   position: relative;
-  top: 1.5rem;
-
+  top: .75rem;
   transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
