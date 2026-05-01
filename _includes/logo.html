@@ -30,7 +30,7 @@
   padding: 2rem;
 }
 
-.container {
+.logo-container {
   display: flex;
   flex-direction: column;
 }
@@ -75,11 +75,11 @@
   transition: transform 0.7s ease;
 }
 
-.container:hover .logo-v {
+.logo-container:hover .logo-v {
   transform: rotate(-12deg);
 }
 
-.container:hover .logo-dot {
+.logo-container:hover .logo-dot {
   transform: rotate(45deg) scale(1.5);
 }
 
@@ -98,24 +98,13 @@
   cursor: default;
 }
 
-/* 👇 Controlled visibility state */
-.tagline-hidden {
-  opacity: 0;
-  transform: translateY(-10px);
-  pointer-events: none;
-}
-
-.container:hover .tagline {
+.logo-container:hover .tagline {
   color: var(--color-accent);
-}
-
-.logo-body.scrolled .logo-link {
-  font-size: 3rem;
 }
 </style>
 
 <div class="logo-body">
-  <div class="container">
+  <div class="logo-container">
     <a href="#" class="logo-link">
       <span class="logo-sah">Şah</span>
       <span class="logo-v">v</span>
@@ -125,40 +114,3 @@
     <p class="tagline">DİJİTAL SATRANÇ DERGİSİ</p>
   </div>
 </div>
-
-<script>
-const header = document.querySelector('.logo-body');
-const tagline = document.querySelector('.tagline');
-
-let isScrolled = false;
-
-const updateHeader = () => {
-  const scrollY = window.pageYOffset || document.documentElement.scrollTop;
-
-  const thresholdIn = 100;
-  const thresholdOut = 40;
-
-  if (scrollY > thresholdIn && !isScrolled) {
-    isScrolled = true;
-    if (header) header.classList.add('scrolled');
-    if (tagline) tagline.classList.add('tagline-hidden');
-
-  } else if (scrollY <= thresholdOut && isScrolled) {
-    isScrolled = false;
-    if (header) header.classList.remove('scrolled');
-    if (tagline) tagline.classList.remove('tagline-hidden');
-  }
-};
-
-let ticking = false;
-
-window.addEventListener('scroll', () => {
-  if (!ticking) {
-    window.requestAnimationFrame(() => {
-      updateHeader();
-      ticking = false;
-    });
-    ticking = true;
-  }
-}, { passive: true });
-</script>
