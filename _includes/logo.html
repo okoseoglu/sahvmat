@@ -23,8 +23,9 @@
         -moz-osx-font-smoothing: grayscale;
         min-height: 100vh;
         display: flex;
-        align-items: center;
-        justify-content: center;
+        align-items: flex-start;
+        justify-content: flex-start;
+        padding: 2rem;
       }
 
       .container {
@@ -40,6 +41,10 @@
         color: var(--color-ink);
         font-size: 3.75rem; /* text-6xl */
         transition: font-size 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+      }
+
+      .logo-link:hover {
+        text-decoration: none;
       }
 
       .logo-sah,
@@ -127,7 +132,6 @@
         }
       }
     </style>
-
   <div class="logo-body">
     <div class="container">
       <a href="/" class="logo-link">
@@ -141,6 +145,7 @@
   </div>
 
 <script>
+// Header scroll behavior (matching original implementation)
 const header = document.getElementById('main-header');
 const tagline = document.getElementById('tagline');
 const headerLogo = header?.querySelector('magazine-logo');
@@ -252,4 +257,4 @@ const observer = new IntersectionObserver((entries) => {
 document.querySelectorAll('section').forEach(section => {
   observer.observe(section);
 });
-  </script>
+</script>
