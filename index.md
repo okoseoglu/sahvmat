@@ -3,6 +3,6 @@ layout: default
 title: Ana Sayfa
 ---
 
-{{ include logo.html }}
+{% include logo.html %}
 
 Merhaba, dünya!
