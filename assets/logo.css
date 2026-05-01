@@ -20,11 +20,9 @@
   color: var(--color-ink);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-
   display: flex;
   align-items: flex-start;
   justify-content: flex-start;
-
   padding: 2rem;
 }
 
