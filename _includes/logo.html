@@ -1,149 +1,152 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@600;700;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&display=swap" rel="stylesheet">
+
 <style>
-      .logo-body *, 
-      .logo-body *::before, 
-      .logo-body *::after {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-      }
+.logo-body *, 
+.logo-body *::before, 
+.logo-body *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
-      :root {
-        --color-ink: #121212;
-        --color-paper: #FDFCF8;
-        --color-accent: #E11D48;
-        --font-display: 'Outfit', sans-serif;
-        --font-serif: 'Playfair Display', serif;
-      }
+:root {
+  --color-ink: #121212;
+  --color-paper: #FDFCF8;
+  --color-accent: #E11D48;
+  --font-display: 'Outfit', sans-serif;
+  --font-serif: 'Playfair Display', serif;
+}
 
-      .logo-body {
-        background-color: var(--color-paper);
-        color: var(--color-ink);
-        -webkit-font-smoothing: antialiased;
-        -moz-osx-font-smoothing: grayscale;
-        display: flex;
-        align-items: flex-start;
-        justify-content: flex-start;
-        padding: 2rem;
-      }
+.logo-body {
+  background-color: var(--color-paper);
+  color: var(--color-ink);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 2rem;
+}
 
-      .container {
-        display: flex;
-        flex-direction: column;
-      }
+.container {
+  display: flex;
+  flex-direction: column;
+}
 
-      .logo-link {
-        display: inline-flex;
-        align-items: baseline;
-        text-decoration: none;
-        color: var(--color-ink);
-        font-size: 3.75rem; /* text-6xl */
-        transition: font-size 0.6s cubic-bezier(0.23, 1, 0.32, 1);
-      }
+.logo-link {
+  display: inline-flex;
+  align-items: baseline;
+  text-decoration: none;
+  color: var(--color-ink);
+  font-size: 3.75rem;
+  transition: font-size 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+}
 
-      .logo-link:hover {
-        text-decoration: none;
-      }
+.logo-link:hover {
+  text-decoration: none;
+}
 
-      .logo-sah,
-      .logo-mat {
-        font-family: var(--font-display);
-        font-weight: 900;
-        letter-spacing: -0.05em;
-        text-transform: uppercase;
-        line-height: 0.75;
-      }
+.logo-sah,
+.logo-mat {
+  font-family: var(--font-display);
+  font-weight: 900;
+  letter-spacing: -0.05em;
+  text-transform: uppercase;
+  line-height: 0.75;
+}
 
-      .logo-v {
-        font-family: var(--font-serif);
-        font-style: italic;
-        font-weight: 500;
-        text-transform: lowercase;
-        color: var(--color-accent);
-        margin: 0 0.25rem;
-        transform: rotate(0deg);
-        transition: transform 0.7s ease;
-      }
+.logo-v {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-weight: 500;
+  text-transform: lowercase;
+  color: var(--color-accent);
+  margin: 0 0.25rem;
+  transform: rotate(0deg);
+  transition: transform 0.7s ease;
+}
 
-      .logo-dot {
-        display: block;
-        width: 0.5rem;
-        height: 0.5rem;
-        background-color: var(--color-accent);
-        margin-left: 0.25rem;
-        align-self: end;
-        margin-bottom: 0.05em;
-        transition: transform 0.7s ease, scale 0.7s ease;
-      }
+.logo-dot {
+  display: block;
+  width: 0.5rem;
+  height: 0.5rem;
+  background-color: var(--color-accent);
+  margin-left: 0.25rem;
+  align-self: end;
+  margin-bottom: 0.05em;
+  transition: transform 0.7s ease;
+}
 
-      .container:hover .logo-v {
-        transform: rotate(-12deg);
-      }
+.container:hover .logo-v {
+  transform: rotate(-12deg);
+}
 
-      .container:hover .logo-dot {
-        transform: rotate(45deg) scale(1.5);
-      }
+.container:hover .logo-dot {
+  transform: rotate(45deg) scale(1.5);
+}
 
-      .tagline {
-        font-family: var(--font-display);
-        font-weight: 600;
-        color: var(--color-ink);
-        font-size: .75rem;
-        letter-spacing: 0.3em;
-        margin-top: -1rem;
-        align-self: center;
-        padding-top: 0;
-        transition: color 0.5s ease;
-        cursor: default;
-      }
+.tagline {
+  font-family: var(--font-display);
+  font-weight: 600;
+  color: var(--color-ink);
+  font-size: .75rem;
+  letter-spacing: 0.3em;
+  margin-top: -1rem;
+  align-self: center;
+  transition: color 0.5s ease, opacity 0.4s ease, transform 0.4s ease;
+  cursor: default;
+}
 
-      .container:hover .tagline {
-        color: var(--color-accent);
-      }
+.container:hover .tagline {
+  color: var(--color-accent);
+}
 
-      .logo-body.scrolled .logo-link {
-      font-size: 3rem;
-      }
-    </style>
-  <div class="logo-body">
-    <div class="container">
-      <a href="#" class="logo-link">
-        <span class="logo-sah">Şah</span>
-        <span class="logo-v">v</span>
-        <span class="logo-mat">mat</span>
-        <span class="logo-dot"></span>
-      </a>
-      <p class="tagline">DİJİTAL SATRANÇ DERGİSİ</p>
-    </div>
+.logo-body.scrolled .logo-link {
+  font-size: 3rem;
+}
+</style>
+
+<div class="logo-body">
+  <div class="container">
+    <a href="#" class="logo-link">
+      <span class="logo-sah">Şah</span>
+      <span class="logo-v">v</span>
+      <span class="logo-mat">mat</span>
+      <span class="logo-dot"></span>
+    </a>
+    <p class="tagline">DİJİTAL SATRANÇ DERGİSİ</p>
   </div>
+</div>
 
 <script>
-// Header scroll behavior (matching original implementation)
+// Header scroll behavior
 const header = document.querySelector('.logo-body');
 const tagline = document.querySelector('.tagline');
-const headerLogo = document.querySelector('.logo-link');
+
 let isScrolled = false;
 
 const updateHeader = () => {
   const scrollY = window.pageYOffset || document.documentElement.scrollTop;
-  
-  // Adjusted thresholds for smoother transition
-  const thresholdIn = 100; 
-  const thresholdOut = 40; 
+
+  const thresholdIn = 100;
+  const thresholdOut = 40;
 
   if (scrollY > thresholdIn && !isScrolled) {
     isScrolled = true;
-    header?.classList.add('scrolled');
+    if (header) header.classList.add('scrolled');
+
     if (tagline) {
       tagline.style.opacity = '0';
       tagline.style.transform = 'translateY(-10px)';
       tagline.style.pointerEvents = 'none';
     }
+
   } else if (scrollY <= thresholdOut && isScrolled) {
     isScrolled = false;
-    header?.classList.remove('scrolled');
+    if (header) header.classList.remove('scrolled');
+
     if (tagline) {
       tagline.style.opacity = '1';
       tagline.style.transform = 'translateY(0)';
@@ -152,11 +155,8 @@ const updateHeader = () => {
   }
 };
 
-if (headerLogo) {
-    headerLogo.style.transition = 'font-size 0.6s cubic-bezier(0.23,1,0.32,1)';
-}
-
 let ticking = false;
+
 window.addEventListener('scroll', () => {
   if (!ticking) {
     window.requestAnimationFrame(() => {
@@ -166,70 +166,4 @@ window.addEventListener('scroll', () => {
     ticking = true;
   }
 }, { passive: true });
-
-// Filter buttons for archive section
-const filterBtns = document.querySelectorAll('.filter-btn');
-const articles = document.querySelectorAll('#articles-grid article');
-
-filterBtns.forEach(btn => {
-  btn.addEventListener('click', () => {
-    // Update active state
-    filterBtns.forEach(b => {
-      b.classList.remove('active');
-      b.classList.add('border-line/20', 'text-slate');
-      b.classList.remove('border-line');
-    });
-    btn.classList.add('active');
-    btn.classList.remove('border-line/20', 'text-slate');
-    btn.classList.add('border-line');
-
-    const filter = btn.dataset.filter;
-
-    articles.forEach(article => {
-      if (filter === 'all') {
-        article.style.display = '';
-      } else {
-        const category = article.dataset.category;
-        if (category === filter) {
-          article.style.display = '';
-        } else {
-          article.style.display = 'none';
-        }
-      }
-    });
-  });
-});
-
-// Show solution button
-const showSolutionBtn = document.getElementById('show-solution');
-if (showSolutionBtn) {
-  showSolutionBtn.addEventListener('click', () => {
-    if (showSolutionBtn.textContent === 'Çözümü Göster') {
-      showSolutionBtn.textContent = '1. Bxf7+ Kxf7 2. Ng5+ Kg8 3. Qb3#';
-      showSolutionBtn.classList.add('text-accent');
-    } else {
-      showSolutionBtn.textContent = 'Çözümü Göster';
-      showSolutionBtn.classList.remove('text-accent');
-    }
-  });
-}
-
-// Intersection Observer for fade-in animations
-const observerOptions = {
-  threshold: 0.1,
-  rootMargin: '0px 0px -50px 0px'
-};
-
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('animate-fade-in');
-      observer.unobserve(entry.target);
-    }
-  });
-}, observerOptions);
-
-document.querySelectorAll('section').forEach(section => {
-  observer.observe(section);
-});
 </script>
