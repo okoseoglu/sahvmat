@@ -44,10 +44,6 @@
   transition: font-size 0.6s cubic-bezier(0.23, 1, 0.32, 1);
 }
 
-.logo-link:hover {
-  text-decoration: none;
-}
-
 .logo-sah,
 .logo-mat {
   font-family: var(--font-display);
@@ -95,8 +91,18 @@
   letter-spacing: 0.3em;
   margin-top: -1rem;
   align-self: center;
-  transition: color 0.5s ease, opacity 0.4s ease, transform 0.4s ease;
+  transition: 
+    color 0.5s ease, 
+    opacity 0.4s ease, 
+    transform 0.4s ease;
   cursor: default;
+}
+
+/* 👇 Controlled visibility state */
+.tagline-hidden {
+  opacity: 0;
+  transform: translateY(-10px);
+  pointer-events: none;
 }
 
 .container:hover .tagline {
@@ -121,7 +127,6 @@
 </div>
 
 <script>
-// Header scroll behavior
 const header = document.querySelector('.logo-body');
 const tagline = document.querySelector('.tagline');
 
@@ -136,22 +141,12 @@ const updateHeader = () => {
   if (scrollY > thresholdIn && !isScrolled) {
     isScrolled = true;
     if (header) header.classList.add('scrolled');
-
-    if (tagline) {
-      tagline.style.opacity = '0';
-      tagline.style.transform = 'translateY(-10px)';
-      tagline.style.pointerEvents = 'none';
-    }
+    if (tagline) tagline.classList.add('tagline-hidden');
 
   } else if (scrollY <= thresholdOut && isScrolled) {
     isScrolled = false;
     if (header) header.classList.remove('scrolled');
-
-    if (tagline) {
-      tagline.style.opacity = '1';
-      tagline.style.transform = 'translateY(0)';
-      tagline.style.pointerEvents = 'auto';
-    }
+    if (tagline) tagline.classList.remove('tagline-hidden');
   }
 };
 
