@@ -146,9 +146,9 @@
 
 <script>
 // Header scroll behavior (matching original implementation)
-const header = document.getElementsByClassName('logo-body');
-const tagline = document.getElementById('tagline');
-const headerLogo = header?.querySelector('magazine-logo');
+const header = document.querySelector('.logo-body');
+const tagline = document.querySelector('.tagline');
+const headerLogo = document.querySelector('.logo-link');
 let isScrolled = false;
 
 const updateHeader = () => {
