@@ -7,10 +7,7 @@
   box-sizing: border-box;
 }
 
-/* =========================
-   BASE
-========================= */
-
+/* BASE */
 .logo-body {
   --color-ink: #121212;
   --color-paper: #FDFCF8;
@@ -19,8 +16,7 @@
   --font-display: 'Outfit', sans-serif;
   --font-serif: 'Playfair Display', serif;
 
-  /* SINGLE SOURCE OF TRUTH */
-  --logo-size: 6rem;
+  --logo-size: 4rem;
   --logo-size-small: 2.5rem;
 
   color: var(--color-ink);
@@ -32,19 +28,17 @@
   padding: 2rem;
 }
 
-/* OPTIONAL BACKGROUND */
+/* OPTIONAL BG */
 .logo-body.has-bg {
   background-color: var(--color-paper);
 }
 
-/* =========================
-   LAYOUT
-========================= */
-
+/* CONTAINER */
 .logo-container {
   display: flex;
 }
 
+/* LINK */
 .logo-link {
   display: inline-flex;
   flex-direction: column;
@@ -54,19 +48,15 @@
   color: var(--color-ink);
 }
 
-/* =========================
-   MAIN LOGO
-========================= */
-
+/* MAIN LOGO */
 .logo-main {
   display: inline-flex;
   align-items: center;
-
   font-size: var(--logo-size);
   transition: font-size 0.35s ease;
 }
 
-/* LETTER STYLES */
+/* TYPOGRAPHY */
 .logo-sah,
 .logo-mat {
   font-family: var(--font-display);
@@ -76,13 +66,12 @@
   line-height: 0.85;
 }
 
-/* stylized v */
+/* V */
 .logo-v {
   font-family: var(--font-serif);
   font-style: italic;
   font-weight: 500;
   text-transform: lowercase;
-
   color: var(--color-accent);
 
   margin: 0 calc(var(--logo-size) * 0.06);
@@ -94,10 +83,7 @@
   transition: transform 0.55s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* =========================
-   SUB LINE
-========================= */
-
+/* SUB */
 .logo-sub {
   display: inline-flex;
   align-items: center;
@@ -129,10 +115,7 @@
   transition: transform 0.35s ease;
 }
 
-/* =========================
-   INTERACTIONS
-========================= */
-
+/* HOVER */
 .logo-link:hover .logo-v {
   transform: rotate(-12deg);
 }
@@ -145,15 +128,18 @@
   color: var(--color-accent);
 }
 
+/* FOCUS */
 .logo-link:focus-visible {
   outline: 2px solid var(--color-accent);
   outline-offset: 6px;
 }
 
-/* =========================
-   NEGATIVE VARIANT
-========================= */
+/* SIZE SYSTEM */
+.logo-body.logo-small { --logo-size: 2.5rem; }
+.logo-body.logo-medium { --logo-size: 4rem; }
+.logo-body.logo-large { --logo-size: 6rem; }
 
+/* NEGATIVE */
 .logo-body.logo-negative {
   --color-ink: #FDFCF8;
   --color-paper: #121212;
@@ -183,6 +169,7 @@
   transition: all 0.35s ease;
 }
 
+/* desktop alignment */
 @media (min-width: 768px) {
   #site-logo {
     justify-content: flex-start;
@@ -190,15 +177,16 @@
 }
 
 /* =========================
-   SCROLL STATE (FINAL FIX)
+   SCROLL STATE (FIXED)
+   ALWAYS WINS OVER SIZE CLASSES
 ========================= */
 
-#site-logo.is-scrolled {
+#site-logo.logo-body.is-scrolled {
   --logo-size: var(--logo-size-small);
   padding: 0.75rem 2rem;
 }
 
-/* hide tagline when scrolled */
+/* hide tagline on scroll */
 #site-logo.is-scrolled .logo-sub {
   opacity: 0;
   transform: translateY(-5px);
