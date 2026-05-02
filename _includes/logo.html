@@ -14,9 +14,7 @@
 <link rel="stylesheet" href="{{ '/assets/logo.css' | relative_url }}">
 
 <header id="site-logo"
-  class="logo-body
-  {% if include.variant %} logo-{{ include.variant }}{% endif %}
-  {% if include.size %} logo-{{ include.size }}{% else %} logo-large{% endif %}">
+  class="logo-body {% if include.variant %}logo-{{ include.variant }}{% endif %}">
 
   <div class="logo-container">
 
