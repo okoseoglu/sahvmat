@@ -16,8 +16,8 @@
   --font-display: 'Outfit', sans-serif;
   --font-serif: 'Playfair Display', serif;
 
-  /* Size system */
-  --logo-size: 4rem; /* default = medium */
+  --logo-size: 4rem;
+  --logo-size-small: 2.5rem;
 
   color: var(--color-ink);
 
@@ -28,7 +28,7 @@
   padding: 2rem;
 }
 
-/* OPTIONAL BACKGROUND (use only if needed) */
+/* OPTIONAL BACKGROUND */
 .logo-body.has-bg {
   background-color: var(--color-paper);
 }
@@ -38,7 +38,7 @@
   display: flex;
 }
 
-/* LINK (vertical layout) */
+/* LINK */
 .logo-link {
   display: inline-flex;
   flex-direction: column;
@@ -53,6 +53,7 @@
   display: inline-flex;
   align-items: center;
   font-size: var(--logo-size);
+  transition: font-size 0.35s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 /* TYPOGRAPHY */
@@ -65,7 +66,7 @@
   line-height: 0.85;
 }
 
-/* Stylized "v" */
+/* "v" */
 .logo-v {
   font-family: var(--font-serif);
   font-style: italic;
@@ -76,21 +77,21 @@
   margin: 0 calc(var(--logo-size) * 0.06);
   font-size: 0.85em;
 
-  display: inline-block;
   position: relative;
   top: -0.05em;
 
-  transform-origin: center;
   transition: transform 0.55s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* SUB LINE */
+/* SUB */
 .logo-sub {
   display: inline-flex;
   align-items: center;
 
   gap: calc(var(--logo-size) * 0.05);
   margin-top: calc(var(--logo-size) * 0.05);
+
+  transition: all 0.3s ease;
 }
 
 /* TAGLINE */
@@ -100,8 +101,6 @@
 
   font-size: calc(var(--logo-size) * 0.18);
   letter-spacing: 0.3em;
-
-  color: var(--color-ink);
 
   transition: color 0.4s ease;
 }
@@ -113,9 +112,6 @@
 
   background-color: var(--color-accent);
 
-  display: inline-block;
-
-  transform-origin: center;
   transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
@@ -141,86 +137,61 @@
   outline-offset: 6px;
 }
 
-/* =========================
-   SIZE MODIFIERS
-========================= */
+/* SIZE MODIFIERS */
+.logo-body.logo-small { --logo-size: 2.5rem; }
+.logo-body.logo-medium { --logo-size: 4rem; }
+.logo-body.logo-large { --logo-size: 6rem; }
 
-/* SMALL */
-.logo-body.logo-small {
-  --logo-size: 2.5rem;
-}
-
-/* MEDIUM (default) */
-.logo-body.logo-medium {
-  --logo-size: 4rem;
-}
-
-/* LARGE */
-.logo-body.logo-large {
-  --logo-size: 6rem;
-}
-
-/* =========================
-   NEGATIVE (DARK) VARIANT
-========================= */
-
+/* NEGATIVE */
 .logo-body.logo-negative {
   --color-ink: #FDFCF8;
   --color-paper: #121212;
   --color-accent: #F43F5E;
 }
 
-/* Slight polish for dark mode */
-.logo-body.logo-negative .tagline {
-  opacity: 0.9;
-}
+.logo-body.logo-negative .tagline { opacity: 0.9; }
 
 .logo-body.logo-negative .logo-dot {
   box-shadow: 0 0 6px rgba(244, 63, 94, 0.5);
 }
 
-/* STICKY HEADER */
+/* =========================
+   STICKY + RESPONSIVE
+========================= */
+
 #site-logo {
   position: sticky;
   top: 0;
   z-index: 1000;
 
-  transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-#site-logo {
   justify-content: center;
+  transition: all 0.35s ease;
 }
 
-/* DESKTOP: aligned left */
+/* desktop */
 @media (min-width: 768px) {
   #site-logo {
     justify-content: flex-start;
   }
 }
 
-/* SHRINK ON SCROLL */
+/* =========================
+   🔥 SCROLL STATE (FIXED)
+========================= */
+
 #site-logo.is-scrolled {
+  --logo-size: var(--logo-size-small); /* FORCE SMALL */
   padding: 0.75rem 2rem;
 }
 
-/* shrink logo size via variable */
-#site-logo.is-scrolled {
-  --logo-size: 2.5rem;
-}
-
-#site-logo .logo-main {
-  transition: font-size 0.35s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-#site-logo .logo-sub {
-  transition: all 0.3s ease;
-}
-
+/* hide tagline when compact */
 #site-logo.is-scrolled .logo-sub {
   opacity: 0;
   transform: translateY(-5px);
   pointer-events: none;
 }
 
-.site-footer {background-color: #121212;}
+/* footer */
+.site-footer {
+  background-color: #121212;
+}

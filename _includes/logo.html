@@ -13,12 +13,12 @@
 
 <link rel="stylesheet" href="{{ '/assets/logo.css' | relative_url }}">
 
-  <header class="logo-body
+<header id="site-logo"
+  class="logo-body
   {% if include.variant %} logo-{{ include.variant }}{% endif %}
-  {% if include.size %} logo-{{ include.size }}{% endif %}">
+  {% if include.size %} logo-{{ include.size }}{% else %} logo-large{% endif %}">
 
   <div class="logo-container">
-
     <a href="{{ '/' | relative_url }}"
        class="logo-link"
        aria-label="ŞahvMat - Dijital Satranç Dergisi">
@@ -35,6 +35,19 @@
       </span>
 
     </a>
-
   </div>
 </header>
+
+<script>
+  const logo = document.getElementById('site-logo');
+
+  function handleScroll() {
+    if (window.scrollY > 20) {
+      logo.classList.add('is-scrolled');
+    } else {
+      logo.classList.remove('is-scrolled');
+    }
+  }
+
+  window.addEventListener('scroll', handleScroll);
+</script>

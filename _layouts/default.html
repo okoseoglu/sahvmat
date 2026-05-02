@@ -27,20 +27,5 @@
 
   {% include footer.html %}
 
-  <div style="min-height:150vh;"></div>
-  
-<script>
-  const logo = document.getElementById('site-logo');
-
-  function handleScroll() {
-    if (window.scrollY > 20) {
-      logo.classList.add('is-scrolled');
-    } else {
-      logo.classList.remove('is-scrolled');
-    }
-  }
-
-  window.addEventListener('scroll', handleScroll);
-</script>
 </body>
 </html>
