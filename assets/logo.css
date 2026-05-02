@@ -1,3 +1,4 @@
+/* RESET (scoped) */
 .logo-body *,
 .logo-body *::before,
 .logo-body *::after {
@@ -6,15 +7,18 @@
   box-sizing: border-box;
 }
 
-/* Scoped variables */
+/* BASE VARIABLES */
 .logo-body {
   --color-ink: #121212;
   --color-paper: #FDFCF8;
   --color-accent: #E11D48;
+
   --font-display: 'Outfit', sans-serif;
   --font-serif: 'Playfair Display', serif;
 
-  background-color: var(--color-paper);
+  /* Size system */
+  --logo-size: 4rem; /* default = medium */
+
   color: var(--color-ink);
 
   -webkit-font-smoothing: antialiased;
@@ -24,12 +28,17 @@
   padding: 2rem;
 }
 
-/* Container */
+/* OPTIONAL BACKGROUND (use only if needed) */
+.logo-body.has-bg {
+  background-color: var(--color-paper);
+}
+
+/* CONTAINER */
 .logo-container {
   display: flex;
 }
 
-/* LINK becomes vertical layout */
+/* LINK (vertical layout) */
 .logo-link {
   display: inline-flex;
   flex-direction: column;
@@ -39,11 +48,11 @@
   color: var(--color-ink);
 }
 
-/* MAIN LOGO LINE */
+/* MAIN LOGO */
 .logo-main {
   display: inline-flex;
   align-items: center;
-  font-size: 4rem;
+  font-size: var(--logo-size);
 }
 
 /* TYPOGRAPHY */
@@ -56,7 +65,7 @@
   line-height: 0.85;
 }
 
-/* stylized v */
+/* Stylized "v" */
 .logo-v {
   font-family: var(--font-serif);
   font-style: italic;
@@ -64,7 +73,7 @@
   text-transform: lowercase;
   color: var(--color-accent);
 
-  margin: 0 0.25rem;
+  margin: 0 calc(var(--logo-size) * 0.06);
   font-size: 0.85em;
 
   display: inline-block;
@@ -75,13 +84,13 @@
   transition: transform 0.55s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* SUB LINE (tagline + dot aligned together) */
+/* SUB LINE */
 .logo-sub {
   display: inline-flex;
   align-items: center;
-  gap: 0.4rem;
 
-  margin-top: 0.2rem; /* tight spacing */
+  gap: calc(var(--logo-size) * 0.05);
+  margin-top: calc(var(--logo-size) * 0.05);
 }
 
 /* TAGLINE */
@@ -89,7 +98,7 @@
   font-family: var(--font-display);
   font-weight: 600;
 
-  font-size: 0.75rem;
+  font-size: calc(var(--logo-size) * 0.18);
   letter-spacing: 0.3em;
 
   color: var(--color-ink);
@@ -97,10 +106,10 @@
   transition: color 0.4s ease;
 }
 
-/* DOT aligned with tagline */
+/* DOT */
 .logo-dot {
-  width: 0.45rem;
-  height: 0.45rem;
+  width: calc(var(--logo-size) * 0.11);
+  height: calc(var(--logo-size) * 0.11);
 
   background-color: var(--color-accent);
 
@@ -132,11 +141,42 @@
   outline-offset: 6px;
 }
 
-/* NEGATIVE VERSION */
+/* =========================
+   SIZE MODIFIERS
+========================= */
+
+/* SMALL */
+.logo-body.logo-small {
+  --logo-size: 2.5rem;
+}
+
+/* MEDIUM (default) */
+.logo-body.logo-medium {
+  --logo-size: 4rem;
+}
+
+/* LARGE */
+.logo-body.logo-large {
+  --logo-size: 6rem;
+}
+
+/* =========================
+   NEGATIVE (DARK) VARIANT
+========================= */
+
 .logo-body.logo-negative {
-  --color-ink: #FDFCF8;     /* light text */
-  --color-paper: #121212;   /* dark background */
-  --color-accent: #F43F5E;  /* slightly brighter accent for contrast */
+  --color-ink: #FDFCF8;
+  --color-paper: #121212;
+  --color-accent: #F43F5E;
+}
+
+/* Slight polish for dark mode */
+.logo-body.logo-negative .tagline {
+  opacity: 0.9;
+}
+
+.logo-body.logo-negative .logo-dot {
+  box-shadow: 0 0 6px rgba(244, 63, 94, 0.5);
 }
 
 .site-footer {background-color: #121212;}
