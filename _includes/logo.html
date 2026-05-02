@@ -13,7 +13,8 @@
 
 <link rel="stylesheet" href="{{ '/assets/logo.css' | relative_url }}">
 
-<header class="logo-body">
+<header class="logo-body{% if include.variant == 'negative' %} logo-negative{% endif %}">
+
   <div class="logo-container">
 
     <a href="{{ '/' | relative_url }}"

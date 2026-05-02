@@ -131,3 +131,12 @@
   outline: 2px solid var(--color-accent);
   outline-offset: 6px;
 }
+
+/* NEGATIVE VERSION */
+.logo-body.logo-negative {
+  --color-ink: #FDFCF8;     /* light text */
+  --color-paper: #121212;   /* dark background */
+  --color-accent: #F43F5E;  /* slightly brighter accent for contrast */
+}
+
+. site-footer {background-color: #121212;}
