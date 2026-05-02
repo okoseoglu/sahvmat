@@ -21,30 +21,32 @@
   -moz-osx-font-smoothing: grayscale;
 
   display: flex;
-  align-items: flex-start;
-  justify-content: flex-start;
-
   padding: 2rem;
 }
 
+/* Container */
 .logo-container {
   display: flex;
-  flex-direction: column;
-  gap: 0.1rem;
 }
 
-/* Main logo link */
+/* LINK becomes vertical layout */
 .logo-link {
   display: inline-flex;
+  flex-direction: column;
   align-items: center;
 
   text-decoration: none;
   color: var(--color-ink);
+}
 
+/* MAIN LOGO LINE */
+.logo-main {
+  display: inline-flex;
+  align-items: center;
   font-size: 4rem;
 }
 
-/* Typography blocks */
+/* TYPOGRAPHY */
 .logo-sah,
 .logo-mat {
   font-family: var(--font-display);
@@ -54,7 +56,7 @@
   line-height: 0.85;
 }
 
-/* stylized "v" */
+/* stylized v */
 .logo-v {
   font-family: var(--font-serif);
   font-style: italic;
@@ -63,37 +65,52 @@
   color: var(--color-accent);
 
   margin: 0 0.25rem;
-
   font-size: 0.85em;
 
   display: inline-block;
   position: relative;
   top: -0.05em;
 
-  transform: rotate(0deg);
   transform-origin: center;
-
   transition: transform 0.55s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* dot */
+/* SUB LINE (tagline + dot aligned together) */
+.logo-sub {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+
+  margin-top: 0.2rem; /* tight spacing */
+}
+
+/* TAGLINE */
+.tagline {
+  font-family: var(--font-display);
+  font-weight: 600;
+
+  font-size: 0.75rem;
+  letter-spacing: 0.3em;
+
+  color: var(--color-ink);
+
+  transition: color 0.4s ease;
+}
+
+/* DOT aligned with tagline */
 .logo-dot {
-  width: 0.5rem;
-  height: 0.5rem;
+  width: 0.45rem;
+  height: 0.45rem;
 
   background-color: var(--color-accent);
 
-  margin-left: 0.25rem;
-
   display: inline-block;
-  align-self: center;
 
-  transform: translateY(0.15em);
-
+  transform-origin: center;
   transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* hover + keyboard interaction */
+/* INTERACTIONS */
 .logo-link:hover .logo-v,
 .logo-link:focus-visible .logo-v {
   transform: rotate(-12deg);
@@ -101,33 +118,16 @@
 
 .logo-link:hover .logo-dot,
 .logo-link:focus-visible .logo-dot {
-  transform: rotate(45deg) translateY(0.15em);
+  transform: rotate(45deg);
 }
 
-/* focus accessibility */
+.logo-link:hover .tagline,
+.logo-link:focus-visible .tagline {
+  color: var(--color-accent);
+}
+
+/* ACCESSIBILITY */
 .logo-link:focus-visible {
   outline: 2px solid var(--color-accent);
   outline-offset: 6px;
-}
-
-/* tagline */
-.tagline {
-  font-family: var(--font-display);
-  font-weight: 600;
-  color: var(--color-ink);
-
-  font-size: 0.75rem;
-  letter-spacing: 0.3em;
-
-  align-self: center;
-
-  transition: color 0.5s ease, opacity 0.4s ease, transform 0.4s ease;
-
-  cursor: default;
-}
-
-/* hover interaction */
-.logo-link:hover + .tagline,
-.logo-link:focus-visible + .tagline {
-  color: var(--color-accent);
 }
