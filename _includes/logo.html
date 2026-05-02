@@ -19,6 +19,7 @@
   {% if include.size %} logo-{{ include.size }}{% else %} logo-large{% endif %}">
 
   <div class="logo-container">
+
     <a href="{{ '/' | relative_url }}"
        class="logo-link"
        aria-label="ŞahvMat - Dijital Satranç Dergisi">
@@ -35,13 +36,14 @@
       </span>
 
     </a>
+
   </div>
 </header>
 
 <script>
   const logo = document.getElementById('site-logo');
 
-  function handleScroll() {
+  function onScroll() {
     if (window.scrollY > 20) {
       logo.classList.add('is-scrolled');
     } else {
@@ -49,5 +51,5 @@
     }
   }
 
-  window.addEventListener('scroll', handleScroll);
+  window.addEventListener('scroll', onScroll);
 </script>

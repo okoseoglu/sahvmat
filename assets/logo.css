@@ -1,4 +1,4 @@
-/* RESET (scoped) */
+/* RESET */
 .logo-body *,
 .logo-body *::before,
 .logo-body *::after {
@@ -7,7 +7,7 @@
   box-sizing: border-box;
 }
 
-/* BASE VARIABLES */
+/* BASE */
 .logo-body {
   --color-ink: #121212;
   --color-paper: #FDFCF8;
@@ -28,7 +28,7 @@
   padding: 2rem;
 }
 
-/* OPTIONAL BACKGROUND */
+/* OPTIONAL BG */
 .logo-body.has-bg {
   background-color: var(--color-paper);
 }
@@ -53,7 +53,7 @@
   display: inline-flex;
   align-items: center;
   font-size: var(--logo-size);
-  transition: font-size 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: font-size 0.35s ease;
 }
 
 /* TYPOGRAPHY */
@@ -66,7 +66,7 @@
   line-height: 0.85;
 }
 
-/* "v" */
+/* V */
 .logo-v {
   font-family: var(--font-serif);
   font-style: italic;
@@ -112,32 +112,29 @@
 
   background-color: var(--color-accent);
 
-  transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: transform 0.35s ease;
 }
 
-/* INTERACTIONS */
-.logo-link:hover .logo-v,
-.logo-link:focus-visible .logo-v {
+/* HOVER */
+.logo-link:hover .logo-v {
   transform: rotate(-12deg);
 }
 
-.logo-link:hover .logo-dot,
-.logo-link:focus-visible .logo-dot {
+.logo-link:hover .logo-dot {
   transform: rotate(45deg);
 }
 
-.logo-link:hover .tagline,
-.logo-link:focus-visible .tagline {
+.logo-link:hover .tagline {
   color: var(--color-accent);
 }
 
-/* ACCESSIBILITY */
+/* FOCUS */
 .logo-link:focus-visible {
   outline: 2px solid var(--color-accent);
   outline-offset: 6px;
 }
 
-/* SIZE MODIFIERS */
+/* SIZE SYSTEM */
 .logo-body.logo-small { --logo-size: 2.5rem; }
 .logo-body.logo-medium { --logo-size: 4rem; }
 .logo-body.logo-large { --logo-size: 6rem; }
@@ -149,14 +146,16 @@
   --color-accent: #F43F5E;
 }
 
-.logo-body.logo-negative .tagline { opacity: 0.9; }
+.logo-body.logo-negative .tagline {
+  opacity: 0.9;
+}
 
 .logo-body.logo-negative .logo-dot {
   box-shadow: 0 0 6px rgba(244, 63, 94, 0.5);
 }
 
 /* =========================
-   STICKY + RESPONSIVE
+   STICKY HEADER
 ========================= */
 
 #site-logo {
@@ -164,11 +163,13 @@
   top: 0;
   z-index: 1000;
 
+  display: flex;
   justify-content: center;
+
   transition: all 0.35s ease;
 }
 
-/* desktop */
+/* desktop alignment */
 @media (min-width: 768px) {
   #site-logo {
     justify-content: flex-start;
@@ -176,15 +177,16 @@
 }
 
 /* =========================
-   🔥 SCROLL STATE (FIXED)
+   SCROLL STATE (FIXED)
+   ALWAYS WINS OVER SIZE CLASSES
 ========================= */
 
-#site-logo.is-scrolled {
-  --logo-size: var(--logo-size-small); /* FORCE SMALL */
+#site-logo.logo-body.is-scrolled {
+  --logo-size: var(--logo-size-small);
   padding: 0.75rem 2rem;
 }
 
-/* hide tagline when compact */
+/* hide tagline on scroll */
 #site-logo.is-scrolled .logo-sub {
   opacity: 0;
   transform: translateY(-5px);
