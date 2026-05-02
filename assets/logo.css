@@ -34,8 +34,7 @@
 
 /* Main logo link */
 .logo-link {
-  display: inline-flex;
-  align-items: baseline;
+  align-items: center;
   text-decoration: none;
   color: var(--color-ink);
   font-size: 4rem;
