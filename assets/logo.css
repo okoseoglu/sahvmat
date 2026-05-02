@@ -17,7 +17,7 @@
   --font-serif: 'Playfair Display', serif;
 
   --logo-size: 4rem;
-  --logo-small: 2.5rem;
+  --logo-size-small: 2.5rem;
 
   color: var(--color-ink);
 
@@ -176,12 +176,13 @@
   }
 }
 
-#site-logo.logo-body {
-  --logo-size: var(--logo-large);
-}
+/* =========================
+   SCROLL STATE (FIXED)
+   ALWAYS WINS OVER SIZE CLASSES
+========================= */
 
 #site-logo.logo-body.is-scrolled {
-  --logo-size: var(--logo-medium);
+  --logo-size: var(--logo-size-small);
   padding: 0.75rem 2rem;
 }
 
