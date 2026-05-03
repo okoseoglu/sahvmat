@@ -25,7 +25,13 @@
   -moz-osx-font-smoothing: grayscale;
 
   display: flex;
-  padding: 2rem;
+  padding: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .logo-body {
+    padding: 2rem;
+  }
 }
 
 /* OPTIONAL BG */
@@ -80,7 +86,7 @@
   position: relative;
   top: -0.05em;
 
-  transition: transform 0.55s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: transform 0.55s cubic-bezier(0.4, 0, 0.2, 1), margin 0.35s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 /* SUB */
@@ -88,10 +94,10 @@
   display: inline-flex;
   align-items: center;
 
-  gap: calc(var(--logo-size) * 0.05);
-  margin-top: calc(var(--logo-size) * 0.05);
+  gap: calc(var(--logo-size) * 0.04);
+  margin-top: calc(var(--logo-size) * -0.16);
 
-  transition: all 0.3s ease;
+  transition: opacity 0.3s ease, transform 0.3s ease, margin 0.35s ease;
 }
 
 /* TAGLINE */
@@ -102,7 +108,7 @@
   font-size: calc(var(--logo-size) * 0.18);
   letter-spacing: 0.3em;
 
-  transition: color 0.4s ease;
+  transition: color 0.4s ease, font-size 0.35s ease;
 }
 
 /* DOT */
@@ -112,7 +118,7 @@
 
   background-color: var(--color-accent);
 
-  transition: transform 0.35s ease;
+  transition: transform 0.35s ease, width 0.35s ease, height 0.35s ease;
 }
 
 /* HOVER */
@@ -135,9 +141,9 @@
 }
 
 /* SIZE SYSTEM */
-.logo-body.logo-small { --logo-size: 2.5rem; }
-.logo-body.logo-medium { --logo-size: 4rem; }
-.logo-body.logo-large { --logo-size: 6rem; }
+.logo-body.logo-small { --logo-size: clamp(2rem, 10vw, 2.5rem); }
+.logo-body.logo-medium { --logo-size: clamp(3rem, 15vw, 4rem); }
+.logo-body.logo-large { --logo-size: clamp(4rem, 20vw, 6rem); }
 
 /* NEGATIVE */
 .logo-body.logo-negative {
@@ -159,14 +165,20 @@
 ========================= */
 
 #site-logo {
-  position: sticky;
+  position: fixed;
   top: 0;
-  z-index: 1000;
+  left: 0;
+  width: 100%;
+  z-index: 99999;
 
   display: flex;
   justify-content: center;
 
-  transition: all 0.35s ease;
+  transition: padding 0.35s cubic-bezier(0.4, 0, 0.2, 1), background-color 0.35s ease, box-shadow 0.35s ease;
+  background-color: var(--color-paper);
+  transform: translateZ(0);
+  will-change: padding, background-color;
+  backface-visibility: hidden;
 }
 
 /* desktop alignment */
@@ -182,8 +194,14 @@
 ========================= */
 
 #site-logo.logo-body.is-scrolled {
-  --logo-size: var(--logo-size-small);
-  padding: 0.75rem 2rem;
+  --logo-size: clamp(2rem, 10vw, 2.5rem);
+  padding: 0.5rem 1.5rem;
+}
+
+@media (min-width: 768px) {
+  #site-logo.logo-body.is-scrolled {
+    padding: 0.75rem 2rem;
+  }
 }
 
 /* hide tagline on scroll */
